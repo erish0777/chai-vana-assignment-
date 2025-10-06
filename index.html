@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Vana | Sip the Silence. Brew the Balance.</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind to use Inter font and define the Chai Vana color palette -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Defined colors based on the Summary Document: Clean, Earthy, and Premium
+                        'primary-green': '#05445E', // Deep Forest Green (Nature/Stability)
+                        'secondary-orange': '#D45A00', // Burnt Terracotta/Orange (Spice/Warmth)
+                        'accent-gold': '#FFD700', // Gold (Premium Quality)
+                        'background-light': '#F8F5F2', // Soft, off-white background
+                        'text-dark': '#2C3E50', // Dark text color
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* Apply smooth scrolling for internal links */
+        html { scroll-behavior: smooth; }
+
+        /* Custom style for the premium gold accent on the logo text */
+        .logo-text-accent {
+            color: transparent;
+            background-image: linear-gradient(to right, var(--tw-colors-secondary-orange), var(--tw-colors-accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+        }
+
+        /* Custom class for the Hero section background image and overlay */
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x800/2C3E50/FFFFFF?text=Premium+Indian+Tea+Garden');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+        }
+    </style>
+</head>
+
+<body class="bg-background-light font-sans text-text-dark">
+
+    <!-- 
+        HEADER/NAVIGATION (Sticky, uses Flexbox for layout - Interactive Header Feature) 
+        ID is used for JavaScript targeting to implement the "Interactive Header" feature.
+    -->
+    <header id="main-header" class="sticky top-0 w-full z-50 bg-background-light shadow-md transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Brand Name -->
+            <div class="text-3xl font-extrabold tracking-tight">
+                <span class="text-primary-green">CHAI</span><span class="logo-text-accent">VANA</span>
+            </div>
+            
+            <!-- Navigation Links (Flexbox) -->
+            <ul class="flex space-x-6 text-lg font-medium">
+                <li><a href="#featured" class="text-text-dark hover:text-secondary-orange transition duration-150">Shop</a></li>
+                <li><a href="#story" class="text-text-dark hover:text-secondary-orange transition duration-150">Our Story</a></li>
+                <li><a href="#blog" class="text-text-dark hover:text-secondary-orange transition duration-150">Blog</a></li>
+                <li><a href="#contact" class="text-text-dark hover:text-secondary-orange transition duration-150">Wholesale</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION (High-impact visual) -->
+        <section class="hero-bg h-[60vh] flex items-center justify-center text-center relative z-10">
+            <div class="relative z-20 p-8">
+                <h1 class="text-6xl sm:text-7xl font-extrabold text-white tracking-tight mb-4 drop-shadow-lg">
+                    Sip the Silence. Brew the Balance.
+                </h1>
+                <p class="text-2xl text-accent-gold mb-8 drop-shadow-md font-medium">
+                    Artisanal Indian Teas. Ethically Sourced. Hand-Blended.
+                </p>
+                <!-- Call to action button -->
+                <a href="#featured" class="inline-block px-10 py-4 bg-secondary-orange text-white font-semibold text-xl rounded-full shadow-2xl hover:bg-primary-green transition duration-300 transform hover:scale-105">
+                    Explore Our Blends
+                </a>
+            </div>
+        </section>
+
+        <!-- FEATURED PRODUCTS SECTION (E-commerce Product Cards using CSS Grid) -->
+        <section id="featured" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary-green">Our Signature Blends</h2>
+            
+            <!-- Product Grid (Responsive layout using CSS Grid) -->
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                
+                <!-- Product Card 1: Masala Chai (Uses Flexbox internally for card content alignment) -->
+                <div class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-secondary-orange flex flex-col justify-between">
+                    <img src="https://placehold.co/400x300/F8F5F2/D45A00?text=Masala+Chai" alt="Masala Chai Blend" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold text-text-dark mb-2">The Bengaluru Blend</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Assam Black Tea, Cardamom, Ginger, Cinnamon.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-xl font-extrabold text-primary-green">₹ 450</span>
+                        <button onclick="showMessage('Added The Bengaluru Blend to cart!')" class="px-5 py-2 bg-primary-green text-white font-medium rounded-full hover:bg-secondary-orange transition duration-200 shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Green Tea (Uses Flexbox internally for card content alignment) -->
+                <div class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-secondary-orange flex flex-col justify-between">
+                    <img src="https://placehold.co/400x300/F8F5F2/05445E?text=Nilgiri+Green+Tea" alt="Nilgiri Green Tea" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold text-text-dark mb-2">Nilgiri Refresh</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Single-Origin Nilgiri Green Tea, Mint, Lemongrass.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-xl font-extrabold text-primary-green">₹ 380</span>
+                        <button onclick="showMessage('Added Nilgiri Refresh to cart!')" class="px-5 py-2 bg-primary-green text-white font-medium rounded-full hover:bg-secondary-orange transition duration-200 shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Wellness Blend (Uses Flexbox internally for card content alignment) -->
+                <div class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-secondary-orange flex flex-col justify-between">
+                    <img src="https://placehold.co/400x300/F8F5F2/D45A00?text=Ayurvedic+Blend" alt="Ayurvedic Wellness Blend" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold text-text-dark mb-2">Vana Balance</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Rooibos Base, Ashwagandha, Turmeric, Black Pepper.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-xl font-extrabold text-primary-green">₹ 510</span>
+                        <button onclick="showMessage('Added Vana Balance to cart!')" class="px-5 py-2 bg-primary-green text-white font-medium rounded-full hover:bg-secondary-orange transition duration-200 shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: Darjeeling Black Tea (Uses Flexbox internally for card content alignment) -->
+                <div class="bg-white p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 border-t-4 border-secondary-orange flex flex-col justify-between">
+                    <img src="https://placehold.co/400x300/F8F5F2/05445E?text=Darjeeling+Black+Tea" alt="Darjeeling Black Tea" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold text-text-dark mb-2">Darjeeling First Flush</h3>
+                    <p class="text-gray-600 mb-3 text-sm">Spring-harvested, Single-Estate Black Tea.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-xl font-extrabold text-primary-green">₹ 620</span>
+                        <button onclick="showMessage('Added Darjeeling First Flush to cart!')" class="px-5 py-2 bg-primary-green text-white font-medium rounded-full hover:bg-secondary-orange transition duration-200 shadow-lg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRAND STORY/ABOUT SECTION -->
+        <section id="story" class="py-20 bg-background-light px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image Placeholder -->
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <img src="https://placehold.co/600x400/05445E/FFFFFF?text=Ethical+Sourcing" alt="Tea leaves being hand-picked" class="w-full h-auto object-cover">
+                </div>
+                
+                <!-- Text Content -->
+                <div>
+                    <span class="text-secondary-orange font-bold uppercase tracking-widest text-sm mb-2 block">Our Ethos</span>
+                    <h2 class="text-4xl font-bold text-primary-green mb-6">From Our Gardens to Your Cup</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Chai Vana was founded on the belief that great tea should not come at the expense of people or the planet. We work directly with small, sustainable farms across Assam, Darjeeling, and Nilgiri, ensuring fair wages and ethical working conditions. Every blend is hand-crafted in small batches in Bengaluru, combining age-old Ayurvedic wisdom with modern flavor profiles.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        It’s more than tea—it’s a ritual of balance, designed to bring a moment of peace to your busy, urban life.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- TESTIMONIALS SECTION (Social Proof) -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary-orange">What Our Sippers Say</h2>
+            
+            <!-- Testimonial Grid (Uses CSS Grid for responsive display) -->
+            <div class="grid gap-8 md:grid-cols-3">
+                
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-xl border-l-4 border-accent-gold">
+                    <p class="text-lg italic text-gray-700 mb-4">"The Bengaluru Blend is my new morning staple. The spices are robust yet perfectly balanced. And I love that they focus on fair trade!"</p>
+                    <p class="font-semibold text-primary-green">— Anjali K., Mumbai</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-xl border-l-4 border-accent-gold">
+                    <p class="text-lg italic text-gray-700 mb-4">"Vana Balance is incredible for winding down after a long day. The packaging is gorgeous and everything feels premium. A true Indian gem."</p>
+                    <p class="font-semibold text-primary-green">— Rohan S., New Delhi</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-xl border-l-4 border-accent-gold">
+                    <p class="text-lg italic text-gray-700 mb-4">"The Nilgiri Refresh is so light and fragrant. The quality is immediately noticeable compared to other green teas. Highly recommend!"</p>
+                    <p class="font-semibold text-primary-green">— Priya L., Chennai</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHOLESALE CONTACT/LEAD CAPTURE FORM -->
+        <section id="contact" class="py-20 bg-primary-green px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center bg-white p-10 rounded-xl shadow-2xl">
+                <h2 class="text-4xl font-bold text-secondary-orange mb-4">Partner with Chai Vana</h2>
+                <p class="text-xl text-text-dark mb-8">Interested in stocking our blends? Fill out the form below for wholesale inquiries.</p>
+                
+                <!-- Wholesale Contact Form -->
+                <form onsubmit="event.preventDefault(); showMessage('Wholesale inquiry sent! We will contact you soon.')" class="space-y-4">
+                    <input type="text" placeholder="Business Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary-orange focus:border-secondary-orange">
+                    <input type="email" placeholder="Contact Email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary-orange focus:border-secondary-orange">
+                    <textarea placeholder="Tell us about your business and estimated order size." rows="4" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary-orange focus:border-secondary-orange"></textarea>
+                    
+                    <button type="submit" class="w-full px-6 py-3 bg-secondary-orange text-white font-semibold text-lg rounded-lg hover:bg-primary-green transition duration-300 transform hover:scale-[1.02]">
+                        Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Placeholder for Blog Section - linking to #blog id in nav -->
+        <section id="blog" class="py-10 text-center text-lg text-gray-500">
+            <p>Content for the Educational Blog section goes here...</p>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-text-dark text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm flex justify-between items-center flex-wrap">
+            <p>&copy; <span id="year"></span> Chai Vana. All rights reserved.</p>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-accent-gold transition">Privacy Policy</a>
+                <a href="#" class="hover:text-accent-gold transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Custom Modal/Message Box (Replaces alert()) -->
+    <div id="message-box" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-[100]">
+        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm text-center transform transition-all duration-300 scale-95 opacity-0">
+            <p id="message-text" class="text-xl font-semibold mb-4 text-text-dark"></p>
+            <button onclick="hideMessage()" class="px-6 py-2 bg-primary-green text-white rounded-lg hover:bg-secondary-orange transition">Close</button>
+        </div>
+    </div>
+    
+    <script>
+        // Set the current year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Interactive Header Logic ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Change style when scrolled down
+                header.classList.remove('py-4');
+                header.classList.add('py-2', 'bg-white'); // More pronounced background on scroll
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-xl');
+            } else {
+                // Default style at the top
+                header.classList.remove('py-2', 'bg-white');
+                header.classList.add('py-4', 'bg-background-light');
+                header.classList.remove('shadow-xl');
+                header.classList.add('shadow-md');
+            }
+        });
+        
+        // --- Custom Message Box Logic (Replaces alert()) ---
+        const messageBox = document.getElementById('message-box');
+        const messageText = document.getElementById('message-text');
+        const modalContent = messageBox.querySelector('div');
+
+        function showMessage(text) {
+            messageText.textContent = text;
+            messageBox.classList.remove('hidden');
+            messageBox.classList.add('flex');
+            
+            // Animate in
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function hideMessage() {
+            // Animate out
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                messageBox.classList.remove('flex');
+                messageBox.classList.add('hidden');
+            }, 300); // Wait for transition to finish
+        }
+    </script>
